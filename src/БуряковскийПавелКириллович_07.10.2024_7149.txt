@@ -1,0 +1,172 @@
+1. Использование команды cat в Linux
+- Создать два текстовых файла: "Pets"(Домашние животные) и "Pack
+animals"(вьючные животные), используя команду `cat` в терминале Linux. В
+первом файле перечислить собак, кошек и хомяков. Во втором — лошадей,
+верблюдов и ослов.
+- Объединить содержимое этих двух файлов в один и просмотреть его содержимое.
+- Переименовать получившийся файл в "Human Friends".
+Пример конечного вывода после команды “ls” :
+Desktop Documents Downloads  HumanFriends.txt  Music  PackAnimals.txt  Pets.txt  Pictures  Videos
+
+ubuntu@ubuntu-virtual-machine:~/final_test$ cat > Pets.txt
+Dogs:
+        Fido
+        Buddy
+        Bella
+Cats:
+        Whiskers
+        Smudge
+        Oliver
+Humsters:
+        Hammy
+        Peanut
+ubuntu@ubuntu-virtual-machine:~/final_test$ cat > PackAnimals.txt
+Horses:
+        Thunder
+        Storm
+        Blaze
+Camels:
+        Sandy
+        Dune
+        Sahara
+Donkeys:
+        Eeyore
+        Burro
+ubuntu@ubuntu-virtual-machine:~/final_test$ cat Pets.txt PackAnimals.txt > merge.txt
+ubuntu@ubuntu-virtual-machine:~/final_test$ cat merge.txt
+Dogs:
+        Fido
+        Buddy
+        Bella
+Cats:
+        Whiskers
+        Smudge
+        Oliver
+Humsters:
+        Hammy
+        Peanut
+Horses:
+        Thunder
+        Storm
+        Blaze
+Camels:
+        Sandy
+        Dune
+        Sahara
+Donkeys:
+        Eeyore
+        Burro
+ubuntu@ubuntu-virtual-machine:~/final_test$ mv merge.txt HumanFriends.txt
+ubuntu@ubuntu-virtual-machine:~/final_test$ ll
+итого 20
+drwxrwxr-x  2 ubuntu ubuntu 4096 окт  3 22:37 ./
+drwxr-x--- 23 ubuntu ubuntu 4096 окт  3 22:22 ../
+-rw-rw-r--  1 ubuntu ubuntu  279 окт  3 22:36 HumanFriends.txt
+-rw-rw-r--  1 ubuntu ubuntu  140 окт  3 22:36 PackAnimals.txt
+-rw-rw-r--  1 ubuntu ubuntu  139 окт  3 22:36 Pets.txt
+
+2. Работа с директориями в Linux
+- Создать новую директорию и переместить туда файл "Human Friends".
+
+ubuntu@ubuntu-virtual-machine:~/final_test$ mkdir new_dir
+ubuntu@ubuntu-virtual-machine:~/final_test$ mv HumanFriends.txt new_dir/
+ubuntu@ubuntu-virtual-machine:~/final_test$ ll
+итого 20
+drwxrwxr-x  3 ubuntu ubuntu 4096 окт  3 22:38 ./
+drwxr-x--- 23 ubuntu ubuntu 4096 окт  3 22:22 ../
+drwxrwxr-x  2 ubuntu ubuntu 4096 окт  3 22:38 new_dir/
+-rw-rw-r--  1 ubuntu ubuntu  140 окт  3 22:36 PackAnimals.txt
+-rw-rw-r--  1 ubuntu ubuntu  139 окт  3 22:36 Pets.txt
+ubuntu@ubuntu-virtual-machine:~/final_test$ cd new_dir/
+ubuntu@ubuntu-virtual-machine:~/final_test/new_dir$ ll
+итого 12
+drwxrwxr-x 2 ubuntu ubuntu 4096 окт  3 22:38 ./
+drwxrwxr-x 3 ubuntu ubuntu 4096 окт  3 22:38 ../
+-rw-rw-r-- 1 ubuntu ubuntu  279 окт  3 22:36 HumanFriends.txt
+
+3. Подключить дополнительный репозиторий MySQL. Установить любой пакет
+из этого репозитория.
+
+ubuntu@ubuntu-virtual-machine:~/final_test$ cd /etc/apt/sources.list.d/
+ubuntu@ubuntu-virtual-machine:~/final_test$ sudo su
+ubuntu@ubuntu-virtual-machine:/etc/apt/sources.list.d$ cat > mysql.list
+deb [signed-by=/usr/share/keyrings/mysql-apt-config.gpg] http://repo.mysql.com/apt/ubuntu/ jammy mysql-apt-config
+deb [signed-by=/usr/share/keyrings/mysql-apt-config.gpg] http://repo.mysql.com/apt/ubuntu/ jammy mysql-8.4-lts
+deb [signed-by=/usr/share/keyrings/mysql-apt-config.gpg] http://repo.mysql.com/apt/ubuntu/ jammy mysql-tools
+deb-src [signed-by=/usr/share/keyrings/mysql-apt-config.gpg] http://repo.mysql.com/apt/ubuntu/ jammy mysql-8.4-lts
+root@ubuntu-virtual-machine:/etc/apt/sources.list.d# apt update
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu jammy InRelease
+Сущ:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Сущ:3 http://ru.archive.ubuntu.com/ubuntu jammy-backports InRelease
+Пол:4 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+Сущ:5 https://download.docker.com/linux/ubuntu jammy InRelease
+Пол:6 http://security.ubuntu.com/ubuntu jammy-security/main amd64 c-n-f Metadata [13,3 kB]
+Пол:7 http://repo.mysql.com/apt/ubuntu jammy InRelease [25,1 kB]
+Пол:8 http://repo.mysql.com/apt/ubuntu jammy/mysql-8.4-lts Sources [968 B]
+Пол:9 http://repo.mysql.com/apt/ubuntu jammy/mysql-apt-config amd64 Packages [566 B]
+Пол:10 http://repo.mysql.com/apt/ubuntu jammy/mysql-apt-config i386 Packages [566 B]
+Пол:11 http://repo.mysql.com/apt/ubuntu jammy/mysql-8.4-lts amd64 Packages [18,9 kB]
+Пол:12 http://repo.mysql.com/apt/ubuntu jammy/mysql-tools i386 Packages [458 B]
+Пол:13 http://repo.mysql.com/apt/ubuntu jammy/mysql-tools amd64 Packages [4 161 B]
+Получено 193 kB за 2с (77,3 kB/s)
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово
+Может быть обновлено 86 пакетов. Запустите «apt list --upgradable» для их показа.
+N: Пропускается получение настроенного файла «stable/binary-i386/Packages», так как репозиторий «https://download.docker.com/linux/ubuntu jammy InRelease» не поддерживает архитектуру «i386»
+ubuntu@ubuntu-virtual-machine:/etc/apt/sources.list.d# apt install mysql-server
+ubuntu@ubuntu-virtual-machine:/etc/apt/sources.list.d$ dpkg -l | grep mysql
+ii  mysql-apt-config                           0.8.32-1                                all          Auto configuration for MySQL APT Repo.
+ii  mysql-client                               8.4.2-1ubuntu22.04                      amd64        MySQL Client meta package depending on latest version
+ii  mysql-common                               8.4.2-1ubuntu22.04                      amd64        Common files shared between packages
+ii  mysql-community-client                     8.4.2-1ubuntu22.04                      amd64        MySQL Client
+ii  mysql-community-client-core                8.4.2-1ubuntu22.04                      amd64        MySQL Client Core Binaries
+ii  mysql-community-client-plugins             8.4.2-1ubuntu22.04                      amd64        MySQL Client plugin
+ii  mysql-community-server                     8.4.2-1ubuntu22.04                      amd64        MySQL Server
+ii  mysql-community-server-core                8.4.2-1ubuntu22.04                      amd64        MySQL Server Core Binaires
+ii  mysql-server                               8.4.2-1ubuntu22.04                      amd64        MySQL Server meta package depending on latest version
+
+4. Установить и удалить deb-пакет с помощью dpkg.
+
+ubuntu@ubuntu-virtual-machine:~$ wget http://nginx.org/packages/ubuntu/pool/nginx/n/nginx/nginx_1.22.0-1~jammy_amd64.deb
+--2024-10-02 16:15:05--  http://nginx.org/packages/ubuntu/pool/nginx/n/nginx/nginx_1.22.0-1~jammy_amd64.deb
+Распознаётся nginx.org (nginx.org)… 3.125.197.172, 52.58.199.22, 2a05:d014:5c0:2600::6, ...
+Подключение к nginx.org (nginx.org)|3.125.197.172|:80... соединение установлено.
+HTTP-запрос отправлен. Ожидание ответа… 200 OK
+Длина: 1002172 (979K) [application/octet-stream]
+Сохранение в: ‘nginx_1.22.0-1~jammy_amd64.deb’
+
+nginx_1.22.0-1~jammy_amd64.deb                              100%[========================================================================================================================================>] 978,68K  2,59MB/s    за 0,4s
+
+2024-10-02 16:15:06 (2,59 MB/s) - ‘nginx_1.22.0-1~jammy_amd64.deb’ сохранён [1002172/1002172]
+
+ubuntu@ubuntu-virtual-machine:~$ sudo dpkg -i nginx_1.22.0-1~jammy_amd64.deb
+Выбор ранее не выбранного пакета nginx.
+(Чтение базы данных … на данный момент установлено 187823 файла и каталога.)
+Подготовка к распаковке nginx_1.22.0-1~jammy_amd64.deb …
+----------------------------------------------------------------------
+
+Thanks for using nginx!
+
+Please find the official documentation for nginx here:
+* https://nginx.org/en/docs/
+
+Please subscribe to nginx-announce mailing list to get
+the most important news about nginx:
+* https://nginx.org/en/support.html
+
+Commercial subscriptions for nginx are available on:
+* https://nginx.com/products/
+
+----------------------------------------------------------------------
+Распаковывается nginx (1.22.0-1~jammy) …
+Настраивается пакет nginx (1.22.0-1~jammy) …
+Created symlink /etc/systemd/system/multi-user.target.wants/nginx.service → /lib/systemd/system/nginx.service.
+Обрабатываются триггеры для man-db (2.10.2-1) …
+ubuntu@ubuntu-virtual-machine:~$ sudo dpkg --purge nginx
+(Чтение базы данных … на данный момент установлено 187857 файлов и каталогов.)
+Удаляется nginx (1.22.0-1~jammy) …
+Вычищаются файлы настройки пакета nginx (1.22.0-1~jammy) …
+Обрабатываются триггеры для man-db (2.10.2-1) …
+ubuntu@ubuntu-virtual-machine:~$ dpkg -l | grep nginx
+ubuntu@ubuntu-virtual-machine:~$
