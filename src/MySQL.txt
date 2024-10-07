@@ -1,0 +1,147 @@
+mysql> CREATE DATABASE `Human Friends`;
+Query OK, 1 row affected (0,00 sec)
+
+mysql> USE `Human Friends`;
+Database changed
+mysql> CREATE TABLE Pets (
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> name VARCHAR(50),
+    -> birthDate DATE,
+    -> commands VARCHAR(255),
+    -> type ENUM('Dog', 'Cat', 'Hamster')
+    -> );
+Query OK, 0 rows affected (0,01 sec)
+
+mysql> CREATE TABLE PackAnimals (
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> name VARCHAR(50),
+    -> birthDate DATE,
+    -> commands VARCHAR(255),
+    -> type ENUM('Horse', 'Camel', 'Donkey')
+    -> );
+Query OK, 0 rows affected (0,01 sec)
+
+mysql> INSERT INTO Pets (name, birthDate, commands, type) VALUES
+    -> ('Fido', '2020-01-01', 'Sit, Stay, Fetch', 'Dog'),
+    -> ('Whiskers', '2019-05-15', 'Sit, Pounce', 'Cat'),
+    -> ('Hammy', '2021-03-10', 'Roll, Hide', 'Hamster'),
+    -> ('Buddy', '2018-12-10', 'Sit, Paw, Bark', 'Dog'),
+    -> ('Smudge', '2020-02-20', 'Sit, Pounce, Scratch', 'Cat'),
+    -> ('Peanut', '2021-08-01', 'Roll, Spin', 'Hamster'),
+    -> ('Bella', '2019-11-11', 'Sit, Stay, Roll', 'Dog'),
+    -> ('Oliver', '2020-06-30', 'Meow, Scratch, Jump', 'Cat');
+Query OK, 8 rows affected (0,00 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO PackAnimals (name, birthDate, commands, type) VALUES
+    -> ('Thunder', '2015-07-21', 'Trot, Canter, Gallop', 'Horse'),
+    -> ('Sandy', '2016-11-03', 'Walk, Carry Load', 'Camel'),
+    -> ('Eeyore', '2017-09-18', 'Walk, Carry Load, Bray', 'Donkey'),
+    -> ('Storm', '2014-05-05', 'Trot, Canter', 'Horse'),
+    -> ('Dune', '2018-12-12', 'Walk, Sit', 'Camel'),
+    -> ('Burro', '2019-01-23', 'Walk, Bray, Kick', 'Donkey'),
+    -> ('Blaze', '2016-02-29', 'Trot, Jump, Gallop', 'Horse'),
+    -> ('Sahara', '2015-08-14', 'Walk, Run', 'Camel');
+Query OK, 8 rows affected (0,00 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM Pets;
++----+----------+------------+----------------------+---------+
+| id | name     | birthDate  | commands             | type    |
++----+----------+------------+----------------------+---------+
+|  1 | Fido     | 2020-01-01 | Sit, Stay, Fetch     | Dog     |
+|  2 | Whiskers | 2019-05-15 | Sit, Pounce          | Cat     |
+|  3 | Hammy    | 2021-03-10 | Roll, Hide           | Hamster |
+|  4 | Buddy    | 2018-12-10 | Sit, Paw, Bark       | Dog     |
+|  5 | Smudge   | 2020-02-20 | Sit, Pounce, Scratch | Cat     |
+|  6 | Peanut   | 2021-08-01 | Roll, Spin           | Hamster |
+|  7 | Bella    | 2019-11-11 | Sit, Stay, Roll      | Dog     |
+|  8 | Oliver   | 2020-06-30 | Meow, Scratch, Jump  | Cat     |
++----+----------+------------+----------------------+---------+
+8 rows in set (0,01 sec)
+
+mysql> SELECT * FROM PackAnimals;
++----+---------+------------+------------------------+--------+
+| id | name    | birthDate  | commands               | type   |
++----+---------+------------+------------------------+--------+
+|  1 | Thunder | 2015-07-21 | Trot, Canter, Gallop   | Horse  |
+|  2 | Sandy   | 2016-11-03 | Walk, Carry Load       | Camel  |
+|  3 | Eeyore  | 2017-09-18 | Walk, Carry Load, Bray | Donkey |
+|  4 | Storm   | 2014-05-05 | Trot, Canter           | Horse  |
+|  5 | Dune    | 2018-12-12 | Walk, Sit              | Camel  |
+|  6 | Burro   | 2019-01-23 | Walk, Bray, Kick       | Donkey |
+|  7 | Blaze   | 2016-02-29 | Trot, Jump, Gallop     | Horse  |
+|  8 | Sahara  | 2015-08-14 | Walk, Run              | Camel  |
++----+---------+------------+------------------------+--------+
+8 rows in set (0,00 sec)
+
+mysql> DELETE FROM PackAnimals WHERE type = 'Camel';
+Query OK, 3 rows affected (0,00 sec)
+
+mysql> CREATE TABLE CombinedAnimals AS
+    -> SELECT name, birthDate, commands, 'Horse' AS type FROM PackAnimals WHERE type = 'Horse'
+    -> UNION ALL
+    -> SELECT name, birthDate, commands, 'Donkey' AS type FROM PackAnimals WHERE type = 'Donkey';
+Query OK, 5 rows affected (0,01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM CombinedAnimals;
++---------+------------+------------------------+--------+
+| name    | birthDate  | commands               | type   |
++---------+------------+------------------------+--------+
+| Thunder | 2015-07-21 | Trot, Canter, Gallop   | Horse  |
+| Storm   | 2014-05-05 | Trot, Canter           | Horse  |
+| Blaze   | 2016-02-29 | Trot, Jump, Gallop     | Horse  |
+| Eeyore  | 2017-09-18 | Walk, Carry Load, Bray | Donkey |
+| Burro   | 2019-01-23 | Walk, Bray, Kick       | Donkey |
++---------+------------+------------------------+--------+
+5 rows in set (0,00 sec)
+
+mysql> CREATE TABLE YoungAnimals AS
+    -> SELECT *, TIMESTAMPDIFF(YEAR, birthDate, CURDATE()) AS ageYears,
+    ->        TIMESTAMPDIFF(MONTH, birthDate, CURDATE()) % 12 AS ageMonths
+    -> FROM Pets
+    -> WHERE TIMESTAMPDIFF(YEAR, birthDate, CURDATE()) BETWEEN 1 AND 3
+    -> UNION ALL
+    -> SELECT *, TIMESTAMPDIFF(YEAR, birthDate, CURDATE()) AS ageYears,
+    ->        TIMESTAMPDIFF(MONTH, birthDate, CURDATE()) % 12 AS ageMonths
+    -> FROM PackAnimals
+    -> WHERE TIMESTAMPDIFF(YEAR, birthDate, CURDATE()) BETWEEN 1 AND 3;
+Query OK, 2 rows affected (0,01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM YoungAnimals;
++----+--------+------------+------------+---------+----------+-----------+
+| id | name   | birthDate  | commands   | type    | ageYears | ageMonths |
++----+--------+------------+------------+---------+----------+-----------+
+|  3 | Hammy  | 2021-03-10 | Roll, Hide | Hamster |        3 |         6 |
+|  6 | Peanut | 2021-08-01 | Roll, Spin | Hamster |        3 |         2 |
++----+--------+------------+------------+---------+----------+-----------+
+2 rows in set (0,00 sec)
+
+mysql> CREATE TABLE AllAnimals AS
+    -> SELECT *, 'Pet' AS source FROM Pets
+    -> UNION ALL
+    -> SELECT *, 'Pack Animal' AS source FROM PackAnimals;
+Query OK, 13 rows affected (0,01 sec)
+Records: 13  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM AllAnimals;
++----+----------+------------+------------------------+---------+-------------+
+| id | name     | birthDate  | commands               | type    | source      |
++----+----------+------------+------------------------+---------+-------------+
+|  1 | Fido     | 2020-01-01 | Sit, Stay, Fetch       | Dog     | Pet         |
+|  2 | Whiskers | 2019-05-15 | Sit, Pounce            | Cat     | Pet         |
+|  3 | Hammy    | 2021-03-10 | Roll, Hide             | Hamster | Pet         |
+|  4 | Buddy    | 2018-12-10 | Sit, Paw, Bark         | Dog     | Pet         |
+|  5 | Smudge   | 2020-02-20 | Sit, Pounce, Scratch   | Cat     | Pet         |
+|  6 | Peanut   | 2021-08-01 | Roll, Spin             | Hamster | Pet         |
+|  7 | Bella    | 2019-11-11 | Sit, Stay, Roll        | Dog     | Pet         |
+|  8 | Oliver   | 2020-06-30 | Meow, Scratch, Jump    | Cat     | Pet         |
+|  1 | Thunder  | 2015-07-21 | Trot, Canter, Gallop   | Horse   | Pack Animal |
+|  3 | Eeyore   | 2017-09-18 | Walk, Carry Load, Bray | Donkey  | Pack Animal |
+|  4 | Storm    | 2014-05-05 | Trot, Canter           | Horse   | Pack Animal |
+|  6 | Burro    | 2019-01-23 | Walk, Bray, Kick       | Donkey  | Pack Animal |
+|  7 | Blaze    | 2016-02-29 | Trot, Jump, Gallop     | Horse   | Pack Animal |
++----+----------+------------+------------------------+---------+-------------+
+13 rows in set (0,00 sec)
