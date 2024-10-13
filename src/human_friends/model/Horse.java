@@ -1,2 +1,9 @@
-package human_friends.model;public class Horse {
+package human_friends.model;
+
+import java.time.LocalDate;
+
+public class Horse extends PackAnimals {
+    public Horse(String name, LocalDate birthDate) {
+        super(name, birthDate);
+    }
 }

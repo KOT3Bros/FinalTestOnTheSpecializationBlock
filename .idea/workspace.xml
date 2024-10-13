@@ -1,32 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2276dba-5b63-4f56-8092-8d169d45b3fa" name="Changes" comment="" />
+    <list default="true" id="a2276dba-5b63-4f56-8092-8d169d45b3fa" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/human_friends/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/human_friends/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/human_friends/model/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/human_friends/model/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/human_friends/model/AnimalService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/human_friends/model/AnimalService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/human_friends/model/AnimalServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/human_friends/model/AnimalServiceInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/human_friends/model/Camel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/human_friends/model/Camel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/human_friends/model/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/human_friends/model/Cat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/human_friends/model/Dog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/human_friends/model/Dog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/human_friends/model/Donkey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/human_friends/model/Donkey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/human_friends/model/Hamster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/human_friends/model/Hamster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/human_friends/model/Horse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/human_friends/model/Horse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/human_friends/model/PackAnimals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/human_friends/model/PackAnimals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/human_friends/model/Pets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/human_friends/model/Pets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/human_friends/presenter/Presenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/human_friends/presenter/Presenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/human_friends/view/ConsoleUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/human_friends/view/ConsoleUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/human_friends/view/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/human_friends/view/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/human_friends/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/human_friends/view/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/human_friends/view/commands/AddAnimal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/human_friends/view/commands/AddAnimal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/human_friends/view/commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/human_friends/view/commands/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/human_friends/view/commands/Finish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/human_friends/view/commands/Finish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/human_friends/view/commands/GetAnimalCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/human_friends/view/commands/GetAnimalCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/human_friends/view/commands/GetCountAnimals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/human_friends/view/commands/GetCountAnimals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/human_friends/view/commands/SortByBirthDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/human_friends/view/commands/SortByBirthDate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/human_friends/view/commands/TeachAnimal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/human_friends/view/commands/TeachAnimal.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;KOT3Bros&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/KOT3Bros/FinalTestOnTheSpecializationBlock.git&quot;,
+    &quot;accountId&quot;: &quot;c3d682ad-ad99-441f-b395-dc83bce70e11&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2n6mCRGkj8sEe7ANQUe7UJYhZJt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "onboarding.tips.debug.path": "D:/GeekBrains/FinalTestOnTheSpecializationBlock/FinalTestOnTheSpecializationBlock/src/Main.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;D:/GeekBrains/FinalTestOnTheSpecializationBlock/FinalTestOnTheSpecializationBlock/src/Main.java&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -37,16 +87,5 @@
       <updated>1728301773402</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

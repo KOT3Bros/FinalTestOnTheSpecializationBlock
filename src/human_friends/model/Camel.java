@@ -1,2 +1,9 @@
-package human_friends.model;public class Camel {
+package human_friends.model;
+
+import java.time.LocalDate;
+
+public class Camel extends PackAnimals {
+    public Camel(String name, LocalDate birthDate) {
+        super(name, birthDate);
+    }
 }

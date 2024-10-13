@@ -1,2 +1,9 @@
-package human_friends.model;public class Hamster {
+package human_friends.model;
+
+import java.time.LocalDate;
+
+public class Hamster extends Pets {
+    public Hamster(String name, LocalDate birthDate) {
+        super(name, birthDate);
+    }
 }
